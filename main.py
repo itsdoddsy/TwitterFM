@@ -59,7 +59,7 @@ if __name__ == "__main__":
         link = get_short_url(latest_track["url"])
 
         # set message to post to twitter
-        nowplaying = f'''#nowplaying {json.dumps(latest_track["name"])} by {json.dumps(latest_track["artist"]["#text"])} {tags_or_no}\n{link}'''
+        nowplaying = f'''#nowplaying {json.dumps(latest_track["name"], ensure_ascii=False)} by {json.dumps(latest_track["artist"]["#text"], ensure_ascii=False)} {tags_or_no}\n{link}'''
 
         if read_cache() != json.dumps(latest_track):
             with open(config.SONG_CACHE, 'w') as f:
